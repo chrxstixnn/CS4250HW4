@@ -13,12 +13,13 @@ from parser import connect_to_mongodb, parse
 def crawlerThread(frontier):
     # keeps track of all visited URLs
     visited = []
+    count = 0
 
     # while there are still URLs in the frontier
     while frontier:
 
         # gets the first element of the queue
-        url = frontier.pop(0)
+        url = frontier[count]
 
         # checks if url is in the visited array
         if url not in visited:
@@ -50,6 +51,7 @@ def crawlerThread(frontier):
                     # adds link if not visited and not in frontier
                     if just_link not in visited and just_link not in frontier:
                         frontier.append(just_link)
+            count = count + 1
 
 # function that uses beautiful soup to get the html of the link
 def retrieveHTML(url):
