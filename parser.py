@@ -10,7 +10,7 @@ DB_NAME = "Homework4"
 DB_HOST = "localhost"
 DB_PORT = 27017
 
-
+# connects database
 def connect_to_mongodb():
     try:
         client = MongoClient(host=DB_HOST, port=DB_PORT)
